@@ -1,0 +1,6 @@
+.green-line {
+  border: none;
+  height: 3px;
+  background-color: #c1d72f;
+  flex: 1;
+}

@@ -1,0 +1,32 @@
+.contact-card {
+  width: 260px;
+  height: 290px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+}
+
+.card-image {
+  border-radius: 50px;
+  width: 150px;
+  height: 150px;
+  margin: 5px 50px;
+}
+
+.card-text {
+  color: #333;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.card-hr{
+    margin: 20px 30px 2px;
+    width: 190px;
+    background-color: #cfcdcd;
+    height: 1px;
+    border: none;
+}

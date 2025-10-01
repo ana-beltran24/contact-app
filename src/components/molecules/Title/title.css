@@ -1,0 +1,14 @@
+.title-div{
+    display: flex;
+    height: 90px;
+    width: auto;
+    align-items: center;
+    padding: 30px;
+    margin-top: 30px;
+    
+}
+
+.main-title{
+    font-weight: 430;
+    margin-right: 50px;
+}
