@@ -1,23 +1,74 @@
-import React, { useState } from "react";
-import Input from "../../atoms/Input/input";
-import Button from "../../atoms/Button/button";
+import { useState } from "react";
+import "../../atoms/Input/input.css";
+import "../../atoms/Button/button.css";
 import "./ContactForm.css";
 
-const ContactForm: React.FC = () => {
-  const [name, setName] = useState("");
+function ContactForm() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleSubmit = () => {
-    console.log({ name, email });
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newContact = {
+      firstName,
+      lastName,
+      email,
+      isFavorite,
+    };
+
+    console.log("Saved contact:", newContact);
+    // Conectar con API POST
+    
+    // Para limpiar formulario
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setIsFavorite(false);
   };
 
   return (
-    <div className="form">
-      <Input placeholder="Full Name" value={name} onChange={(e)=>setName(e.target.value)} />
-      <Input placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-      <Button label="Add Contact" onClick={handleSubmit} />
-    </div>
+    <form className="contact-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="First name"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+        required
+      />
+
+      <input
+        type="text"
+        placeholder="Last name"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
+        required
+      />
+
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+
+      <label className="favorite-checkbox">
+        <span>Enable like favorite</span>
+        <input
+          type="checkbox"
+          checked={isFavorite}
+          onChange={(e) => setIsFavorite(e.target.checked)}
+        />
+      </label>
+
+      <button type="submit" className="save-button">
+        SAVE
+      </button>
+    </form>
   );
-};
+}
 
 export default ContactForm;

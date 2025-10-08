@@ -1,5 +1,54 @@
-.form {
+.contact-form {
+  background-color: #c4d82d;
+  padding: 32px;
   display: flex;
-  gap: 10px;
-  margin: 20px;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+  margin: 0px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+  background-color: #d8ea5e;
+  border: none;
+  padding: 13px;
+  width: 100%;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.contact-form input:focus {
+  outline: 2px solid #a8bf00;
+}
+
+.favorite-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-bottom: 24px;
+  margin-top: 5px;
+}
+
+.favorite-checkbox span {
+  font-family: "Roboto", sans-serif;
+  margin-right: 150px;
+  font-size: 15px;
+}
+
+.save-button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: "Roboto", sans-serif;
+}
+
+.save-button:hover {
+  background-color: #f0f0f0;
 }
