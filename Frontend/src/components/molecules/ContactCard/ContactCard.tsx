@@ -2,8 +2,8 @@ import React from "react";
 import Button from "../../atoms/Button/button";
 import Text from "../../atoms/Text/text";
 import "./ContactCard.css";
-import { ReactComponent as HeartIcon } from "@/assets/Icons/icon_action_favorite_24px.svg";
-import { ReactComponent as TrashIcon } from "@/assets/Icons/delete-24px.svg";
+//import { ReactComponent as HeartIcon } from "@/assets/Icons/icon_action_favorite_24px.svg";
+//import { ReactComponent as TrashIcon } from "@/assets/Icons/delete-24px.svg";
 
 interface ContactCardProps {
   name: string;
@@ -25,11 +25,11 @@ const ContactCard: React.FC<ContactCardProps> = ({ name, email, image, type="nor
 
     {type === "favorite" ? (
       <Button label="" variant="remove" onClick={onRemove}>
-        <TrashIcon className="btn-icon" />
+        
       </Button>
     ) : (
       <Button label="" variant="favorite" onClick={onFavorite}>
-        <HeartIcon className="btn-icon" />
+        
       </Button>
     )}
   </div>
