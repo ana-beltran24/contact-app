@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../atoms/Button/button";
 import Logo from "@/assets/Images/Logo.png";
-import "./Navbar.css";
+import "./navbar.css";
 
 interface NavbarProps {
   onNewClick: () => void;

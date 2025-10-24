@@ -21,9 +21,9 @@ function App() {
         {showForm && <ContactForm />}
         <Routes>
           <Route path="/" element={<OverviewPage />} />
-          <Route path="/Overview" element={<OverviewPage />} />
-          <Route path="/Favorites" element={<FavoritesPage />} />
-          <Route path="/Contacts" element={<ContactsPage />} />
+          <Route path="/overview" element={<OverviewPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Routes>
       </Router>
 

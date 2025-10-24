@@ -10,11 +10,11 @@
     transition: background-color 0.3s ease;
 }
 
-.btn-new:hover {
-    background-color: #a8bc26;
-}
-
 .btn-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; 
   border-radius: 5px;
   width: 120px;
   height: 40px;
@@ -23,46 +23,47 @@
   border: 2px solid #c40202;
   cursor: pointer;
   margin: 10px 65px;
-} 
-
-.btn-remove:hover {
-  background-color: #c40202;
-  color: #ffffff;
 }
 
 .btn-favorite {
-  border-radius: 5px;
-  width: 45px;
-  height: 40px;
-  background-color: #ffffff;
+  width: 40px;
+  height: 35px;
+  padding: 0;
+  border-radius: 6px;
+  background-color: #fff;
   color: #c1d72f;
   border: 2px solid #c1d72f;
-  cursor: pointer;
-  margin: 10px 100px;
-} 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.btn-favorite:hover {
-  background-color: #c1d72f;
-  color: #ffffff;
+.btn-delete {
+  width: 40px;
+  height: 35px;
+  padding: 0;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #c40202;
+  border: 2px solid #c40202;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.btn-remove:hover { background-color: #c40202; color: #fff; }
+.btn-favorite:hover { background-color: #c1d72f; color: #fff; }
+.btn-delete:hover { background-color: #c40202; color: #fff; }
+
+button[class^="btn-"] .icon,
+button[class^="btn-"] svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
  
 .btn-div {
   display: inline-block;
-}
-
-.btn-delete {
-  border-radius: 5px;
-  width: 45px;
-  height: 35px;
-  background-color: #ffffff;
-  color: #c40202;
-  border: 2px solid #c40202;
-  cursor: pointer;
-  margin: 10px 0px;
-} 
-
-.btn-delete:hover {
-  background-color: #c40202;
-  color: #ffffff;
 }

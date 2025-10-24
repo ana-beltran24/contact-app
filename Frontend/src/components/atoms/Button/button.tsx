@@ -2,7 +2,7 @@ import React from "react";
 import "./button.css";
 
 interface ButtonProps {
-  label: string;
+  label?: string;
   onClick?: () => void;
   variant?: "new" | "remove" | "favorite" | "delete";
   children?: React.ReactNode;

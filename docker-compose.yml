@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: contact-app-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: contactapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: contact-app-backend
+    ports:
+      - "4000:4000"
+      - "5555:5555" 
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/contactapp
+    depends_on:
+      - postgres
+    command: npm run dev
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: contact-app-frontend
+    restart: always
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    
+
+volumes:
+  pgdata:

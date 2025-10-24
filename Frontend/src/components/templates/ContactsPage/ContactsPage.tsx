@@ -6,7 +6,7 @@ const ContactsPage: React.FC = () => {
   return (
     <>
       <Title text="Contact List" />
-      <ContactList contacts={[{id:1,name:"Sample",email:"sample@mail.com"}]} />
+      <ContactList type="contacts" />
     </>
   );
 };

@@ -1,26 +1,37 @@
 .contact-card {
-  width: 260px;
-  height: 290px;
+  width: 250px;
+  height: 240px;
   background-color: white;
   border-radius: 5px;
   border: 1px solid #ccc;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  margin: 25px;
+  justify-content: space-between;
+  align-items: center; 
+  margin: 14px;
 }
 
 .card-image {
-  border-radius: 50px;
-  width: 150px;
-  height: 150px;
+  border-radius: 80px;
+  width: 120px;
+  height: 120px;
   margin: 5px 50px;
 }
 
 .card-text {
   color: #333;
   text-align: center;
-  margin-top: 5px;
+}
+
+.full-name{
+  font-weight: 790;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.email{
+  margin-top: 2px;
 }
 
 .card-hr{
@@ -29,4 +40,14 @@
     background-color: #cfcdcd;
     height: 1px;
     border: none;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 6px;
+  padding-bottom: 8px;
 }

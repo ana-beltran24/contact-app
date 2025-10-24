@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Ana Beltran",
+      "email": "ana@example.com",
+      "phone": "123456789",
+      "favorite": true
+    },
+    {
+      "id": 2,
+      "name": "Santiago Quecan",
+      "email": "santi@example.com",
+      "phone": "987654321",
+      "favorite": false
+    }
+  ]
+}

@@ -1,12 +1,16 @@
 import React from "react";
 import Title from "@/components/molecules/Title/title";
 import FavoritesList from "@/components/organisms/FavoritesList/FavoritesList";
+import { useAppSelector } from "@/app/hooks";
 
 const FavoritesPage: React.FC = () => {
+  const { contacts } = useAppSelector((state) => state.contacts);
+  const favoriteContacts = contacts.filter((c) => c.isFavorite);
+
   return (
     <>
       <Title text="Favorites" />
-      <FavoritesList favorites={[{id:1,name:"Sample Fav",email:"fav@mail.com"}]} />
+      <FavoritesList favorites={favoriteContacts} type="favorite" />
     </>
   );
 };

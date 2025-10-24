@@ -1,22 +1,23 @@
 import React from "react";
 import ContactCard from "../../molecules/ContactCard/ContactCard";
 import "./FavoritesList.css";
-
-interface Contact {
-  id: number;
-  name: string;
-  email: string;
-}
+import type { Contact } from "@/features/contacts/contactTypes";
 
 interface FavoritesListProps {
   favorites: Contact[];
-  onRemove?: (id:number)=>void;
+  type?: "favorite" | "overview"; // opcional, por si quieres usar overview también
 }
 
-const FavoritesList: React.FC<FavoritesListProps> = ({ favorites, onRemove }) => (
+const FavoritesList: React.FC<FavoritesListProps> = ({ favorites, type = "favorite" }) => (
   <div className="favorites-list">
-    {favorites.map(f => (
-      <ContactCard key={f.id} name={f.name} email={f.email} type="favorite" onRemove={()=>onRemove?.(f.id)} />
+    {favorites.map((f) => (
+      <ContactCard
+        key={f.id}
+        name={`${f.name} ${f.lastName}`}
+        email={f.email}
+        image={f.photo ? `http://localhost:4000/api/contacts/${f.id}/photo` : undefined}
+        type={type}
+      />
     ))}
   </div>
 );

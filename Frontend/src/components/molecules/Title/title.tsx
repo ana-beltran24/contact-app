@@ -1,6 +1,6 @@
 import React from "react";
 import Line from "../../atoms/Line/line";
-import "./Title.css";
+import "./title.css";
 
 interface TitleProps {
   text: string;
