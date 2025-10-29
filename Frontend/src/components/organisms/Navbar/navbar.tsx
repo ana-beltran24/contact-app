@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../atoms/Button/button";
 import Logo from "@/assets/Images/Logo.png";
 import "./navbar.css";
@@ -8,10 +8,20 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNewClick }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <nav>
       <img src={Logo} alt="Logo" className="logo" />
-      <ul>
+
+      <div className={`burger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={isOpen ? "active" : ""}>
         <li><a href="/">Overview</a></li>
         <li><a href="/contacts">Contacts</a></li>
         <li><a href="/favorites">Favorites</a></li>

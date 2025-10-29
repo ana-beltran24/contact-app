@@ -40,7 +40,7 @@ export const createContact = [
   upload.single("photo"),
   async (req: Request, res: Response) => {
     try {
-      const { firstName, lastName, email, isFavorite } = req.body;
+      const { firstName, lastName, email, favorite } = req.body;
       const photo = req.file ? req.file.buffer : null;
 
       const newContact = await prisma.contact.create({
@@ -48,7 +48,7 @@ export const createContact = [
           name: firstName, 
           lastName,
           email,
-          favorite: isFavorite === "true" || isFavorite === true,
+          favorite: favorite === "true" || favorite === true,
           photo,
         },
       });
@@ -64,18 +64,16 @@ export const createContact = [
 export const updateContact = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { firstName, lastName, email, isFavorite } = req.body;
+    const { name, lastName, email, favorite } = req.body;
 
-    let data: any = {
-      name: firstName, 
-      lastName,
-      email,
-      favorite: isFavorite === "true" || isFavorite === true,
-    };
+    const data: any = {};
 
-    if (req.file) {
-      data.photo = req.file.buffer;
-    }
+    if (name !== undefined) data.name = name;
+    if (lastName !== undefined) data.lastName = lastName;
+    if (email !== undefined) data.email = email;
+    if (favorite !== undefined)
+      data.favorite = favorite === "true" || favorite === true;
+    if (req.file) data.photo = req.file.buffer;
 
     const updated = await prisma.contact.update({
       where: { id: Number(id) },

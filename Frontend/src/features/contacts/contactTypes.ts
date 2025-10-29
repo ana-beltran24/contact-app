@@ -3,6 +3,6 @@ export interface Contact {
   name: string;
   lastName: string;
   email: string;
-  isFavorite: boolean;
+  favorite: boolean;
   photo?: string; 
 }

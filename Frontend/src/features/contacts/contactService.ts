@@ -1,6 +1,8 @@
 import { api } from "../../utils/api";
 import type { Contact } from "./contactTypes";
 
+const API_URL = "http://localhost:4000/api/contacts";
+
 export const getContacts = async (): Promise<Contact[]> => {
   const res = await api.get("/api/contacts");
   return res.data;
@@ -31,13 +33,31 @@ export const toggleFavorite = async (id: string, favorite: boolean) => {
   const response = await fetch(`http://localhost:4000/api/contacts/${id}/favorite`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ isFavorite: favorite }),
+    body: JSON.stringify({ favorite: favorite }),
   });
 
   if (!response.ok) throw new Error("No se pudo actualizar el favorito");
 
   const updatedContact = await response.json();
   return updatedContact; 
+};
+
+
+export const editContact = async (
+  id: number,
+  data: { name?: string; lastName?: string; email?: string; photo?: File | null }
+) => {
+  const formData = new FormData();
+  if (data.name) formData.append("name", data.name);
+  if (data.lastName) formData.append("lastName", data.lastName);
+  if (data.email) formData.append("email", data.email);
+  if (data.photo) formData.append("photo", data.photo);
+
+  const response = await api.put(`${API_URL}/${id}`, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+
+  return response.data;
 };
 
 

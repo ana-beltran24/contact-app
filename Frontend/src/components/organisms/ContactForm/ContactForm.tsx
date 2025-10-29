@@ -11,7 +11,7 @@ function ContactForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(false);
   const [photo, setPhoto] = useState<File | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +20,7 @@ function ContactForm() {
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
     formData.append("email", email);
-    formData.append("isFavorite", String(isFavorite));
+    formData.append("favorite", String(favorite));
     if (photo) formData.append("photo", photo);
 
     dispatch(addContact(formData));
@@ -29,7 +29,7 @@ function ContactForm() {
     setFirstName("");
     setLastName("");
     setEmail("");
-    setIsFavorite(false);
+    setFavorite(false);
     setPhoto(null);
   };
 
@@ -63,8 +63,8 @@ function ContactForm() {
         <span>Enable like favorite</span>
         <input
           type="checkbox"
-          checked={isFavorite}
-          onChange={(e) => setIsFavorite(e.target.checked)}
+          checked={favorite}
+          onChange={(e) => setFavorite(e.target.checked)}
         />
       </label>
 

@@ -5,6 +5,7 @@ import "./ContactCard.css";
 import HeartIcon from "@/assets/Icons/icon_action_favorite_24px.svg?react";
 import RemoveIcon from "@/assets/Icons/icon_navigation_close_24px.svg?react";
 import DeleteIcon from "@/assets/Icons/delete-24px.svg?react";
+import EditIcon from "@/assets/Icons/edit-3-svgrepo-com.svg?react";
 import noPhoto from "@/assets/Icons/nophoto-avatar.png";
 
 interface ContactCardProps {
@@ -12,14 +13,15 @@ interface ContactCardProps {
   email: string;
   image?: string;
   type?: "overview" | "contacts" | "favorite";
-  onRemove?: () => void;
   onFavorite?: () => void;
   onDelete?: () => void;
+  onRemove?: () => void;
+  onEdit?: () => void;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({ name, email, image, type="normal", onRemove, onFavorite, onDelete }) => (
+const ContactCard: React.FC<ContactCardProps> = ({ name, email, image, type="normal", onRemove, onFavorite, onDelete, onEdit }) => (
   <div className="contact-card">
-    <img src={image || noPhoto} alt={name} className="card-image" />
+    <img src={image || noPhoto} alt={name} className={`card-image ${type === "favorite" ? "favorite-border" : ""}`} />
     <div className="card-text">
       <Text className="full-name">{name}</Text>
       <Text className="email">{email}</Text>
@@ -38,6 +40,9 @@ const ContactCard: React.FC<ContactCardProps> = ({ name, email, image, type="nor
       </Button>
       <Button variant="favorite" onClick={onFavorite} label="">
         <HeartIcon />
+      </Button>
+      <Button variant="edit" onClick={onEdit} label="">
+        <EditIcon/>
       </Button>
     </>
   ) : type === "overview" ? (

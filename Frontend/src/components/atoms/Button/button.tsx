@@ -4,7 +4,7 @@ import "./button.css";
 interface ButtonProps {
   label?: string;
   onClick?: () => void;
-  variant?: "new" | "remove" | "favorite" | "delete";
+  variant?: "new" | "remove" | "favorite" | "delete" | "edit";
   children?: React.ReactNode;
 }
 

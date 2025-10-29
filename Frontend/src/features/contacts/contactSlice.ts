@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { Contact } from "./contactTypes";
-import { fetchContacts, addContact, editContact, removeContact, toggleFavoriteContact } from "./contactThunks";
+import { fetchContacts, addContact, editContact, deleteContact, toggleFavoriteContact } from "./contactThunks";
 
 interface ContactState {
   contacts: Contact[];
@@ -34,15 +34,25 @@ const contactSlice = createSlice({
     .addCase(addContact.fulfilled, (state, action) => {
       state.contacts.push(action.payload);
     })
-    .addCase(editContact.fulfilled, (state, action) => {
-      const index = state.contacts.findIndex((c) => c.id === action.payload.id);
-      if (index !== -1) state.contacts[index] = action.payload;
-    })
-    .addCase(removeContact.fulfilled, (state, action) => {
+    .addCase(deleteContact.fulfilled, (state, action) => {
       state.contacts = state.contacts.filter((c) => c.id !== action.payload);
     })
+    
+    .addCase(editContact.fulfilled, (state, action) => {
+      const index = state.contacts.findIndex(
+        (c) => c.id.toString() === action.payload.id.toString()
+      );
+      if (index !== -1) {
+        state.contacts[index] = {
+          ...state.contacts[index],
+          ...action.payload,
+        };
+      }
+    })
     .addCase(toggleFavoriteContact.fulfilled, (state, action) => {
-      const index = state.contacts.findIndex((c) => c.id.toString() === action.payload.id.toString());
+      const index = state.contacts.findIndex(
+        (c) => c.id.toString() === action.payload.id.toString()
+      );
       if (index !== -1) {
         state.contacts[index] = action.payload;
       }

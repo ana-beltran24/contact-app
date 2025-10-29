@@ -6,15 +6,17 @@ import {
   deleteContact,
   getContactPhoto,
   toggleFavorite,
+  upload,
 } from "../controllers/contact.controller.js";
 
 const router = express.Router();
 
 router.get("/", getContacts);
 router.post("/", createContact);
-router.put("/:id", updateContact);
+router.put("/:id", upload.single("photo"), updateContact);
 router.delete("/:id", deleteContact);
 router.get("/:id/photo", getContactPhoto);
 router.patch("/:id/favorite", toggleFavorite);
 
 export default router;
+

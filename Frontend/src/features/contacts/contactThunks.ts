@@ -25,15 +25,7 @@ export const addContact = createAsyncThunk("contacts/add", async (formData: Form
   return data;
 });
 
-export const editContact = createAsyncThunk(
-  "contacts/edit",
-  async ({ id, formData }: { id: string; formData: FormData }) => {
-    const data = await contactService.updateContact(id, formData);
-    return data;
-  }
-);
-
-export const removeContact = createAsyncThunk("contacts/remove", async (id: string) => {
+export const deleteContact = createAsyncThunk("contacts/remove", async (id: string) => {
   await contactService.deleteContact(id);
   return id;
 });
@@ -46,6 +38,34 @@ export const toggleFavoriteContact = createAsyncThunk<
   async ({ id, favorite }) => {
     const updated = await toggleFavoriteService(id, favorite);
     return updated; 
+  }
+);
+
+export const editContact = createAsyncThunk(
+  "contacts/editContact",
+  async (
+    {
+      id,
+      name,
+      lastName,
+      email,
+      photo,
+    }: { id: number; name: string; lastName: string; email: string; photo?: File | null },
+    { rejectWithValue }
+  ) => {
+    try {
+      await contactService.editContact(id, { name, lastName, email, photo });
+
+      return {
+        id: id.toString(),
+        name,
+        lastName,
+        email,
+        photo: photo ? URL.createObjectURL(photo) : undefined,
+      };
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || "Error al editar contacto");
+    }
   }
 );
 

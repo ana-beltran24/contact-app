@@ -61,3 +61,79 @@
 .save-button:hover {
   background-color: #f0f0f0;
 }
+
+/* Tablets */
+@media (max-width: 768px) {
+  .contact-form {
+    width: 300px;
+    padding: 24px;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    width: 90%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .favorite-checkbox {
+    margin-left: 20px;
+    gap: 6px;
+  }
+
+  .favorite-checkbox span {
+    margin-right: 100px;
+    font-size: 14px;
+  }
+
+  .image-input {
+    font-size: 13px;
+  }
+
+  .save-button {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .contact-form {
+    width: 90%;
+    padding: 20px;
+    box-shadow: none;
+    border-radius: 6px;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .favorite-checkbox {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0 15px;
+  }
+
+  .favorite-checkbox span {
+    margin-right: 0;
+    font-size: 13px;
+  }
+
+  .image-input {
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .save-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background-color: white;
+  }
+}
