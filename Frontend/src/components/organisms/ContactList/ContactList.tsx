@@ -22,9 +22,7 @@ const ContactList: React.FC<ContactListProps> = ({ type, contacts }) => {
   const { contacts: allContacts, loading } = useAppSelector(
     (state) => state.contacts
   );
-
-  const contactState = allContacts ?? []; 
-  const contactsToShow = contacts ?? contactState;
+  const contactsToShow =  contacts ?? allContacts;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
@@ -43,6 +41,12 @@ const ContactList: React.FC<ContactListProps> = ({ type, contacts }) => {
     contact: Contact | null;
   }>({ open: false, contact: null });
   const [favoriteModal, setFavoriteModal] = useState(false);
+
+  useEffect(() => {
+    if (!contacts || contacts.length === 0) {
+      dispatch(fetchContacts());
+    }
+  }, [contacts, dispatch]);
 
   if (loading) return <p className="loading">Cargando contactos...</p>;
   if (!contactsToShow.length) return <p className="empty">No hay contactos</p>;
