@@ -80,7 +80,7 @@ nav ul li a:hover {
 }
 
 /* Tablets pequeñas*/
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .burger {
     display: flex;
   }
@@ -88,7 +88,7 @@ nav ul li a:hover {
   nav ul {
     position: absolute;
     top: 70px;
-    right: 0;
+    left: 0;
     background-color: #fff;
     flex-direction: column;
     align-items: center;
@@ -113,7 +113,7 @@ nav ul li a:hover {
 }
 
 /* móviles */
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   nav {
     padding: 15px 15px;
   }

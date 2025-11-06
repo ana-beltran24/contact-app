@@ -110,6 +110,7 @@ const ContactList: React.FC<ContactListProps> = ({ type, contacts }) => {
 
   return (
     <div className="contact-list">
+    <div className="grid-card">
       {paginatedContacts.map((c: Contact) => (
         <ContactCard
           key={c.id}
@@ -133,6 +134,8 @@ const ContactList: React.FC<ContactListProps> = ({ type, contacts }) => {
         />
       ))}
 
+    </div>
+
       {type !== "overview" && totalPages > 1 && (
         <div className="pagination-container bottom-right">
           <span className="pagination-info">
@@ -154,7 +157,7 @@ const ContactList: React.FC<ContactListProps> = ({ type, contacts }) => {
           </button>
         </div>
       )}
-
+    
       {deleteModal.open && (
         <DeleteModal
           name={deleteModal.contact?.name || ""}

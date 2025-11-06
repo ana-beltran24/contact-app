@@ -39,6 +39,7 @@ export const getContactPhoto = async (req: Request, res: Response) => {
 export const createContact = [
   upload.single("photo"),
   async (req: Request, res: Response) => {
+    console.log(req.body)
     try {
       const { firstName, lastName, email, favorite } = req.body;
       const photo = req.file ? req.file.buffer : null;

@@ -1,11 +1,13 @@
 .contact-list {
-  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 20px;
-  min-height: 100vh; 
+  height: 100%; 
   padding-bottom: 80px; 
+  flex-direction: column;
+}
+
+.grid-card{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
 }
 
 .modal-overlay {
@@ -99,14 +101,11 @@
   }
 }
 
-.pagination-container.bottom-right {
-  position: absolute;
-  bottom: 20px;
-  left: 40px;
+.pagination-container{
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-left: 1000px;
+  justify-content: flex-end;
+  margin-right: 55px;
 }
 
 .pagination-info {
@@ -122,6 +121,7 @@
   cursor: pointer;
   font-size: 16px;
   transition: all 0.2s;
+  margin: 8px
 }
 
 .pagination-arrow:hover:not(:disabled) {
@@ -133,17 +133,24 @@
   cursor: not-allowed;
 }
 
-/* tablets */
-@media (max-width: 992px) {
-  .contact-list {
-    justify-content: center;
-    gap: 14px;
-    padding: 16px;
+/* computadores grandes */
+@media (min-width: 1920px) {
+
+  .grid-card{
+    grid-template-columns: repeat(6,1fr);
   }
 
-  .pagination-container.bottom-right {
-    left: 20px;
-    bottom: 15px;
+  .modal-content {
+    width: 85%;
+    max-width: 380px;
+  }
+} 
+
+/* tablets */
+@media (max-width: 992px) {
+
+  .grid-card{
+    grid-template-columns: repeat(3,1fr);
   }
 
   .modal-content {
@@ -154,11 +161,8 @@
 
 /* tablets pequeñas */
 @media (max-width: 768px) {
-  .contact-list {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 12px;
+  .grid-card{
+    grid-template-columns: repeat(2,1fr);
   }
 
   .modal-content {
@@ -182,18 +186,13 @@
     width: 100%;
   }
 
-  .pagination-container.bottom-right {
-    position: static;
-    justify-content: center;
-    margin-top: 16px;
-  }
 }
 
 /* móviles */
 @media (max-width: 480px) {
-  .contact-list {
-    gap: 10px;
-    padding: 10px;
+  
+  .grid-card{
+    grid-template-columns: repeat(1,1fr);
   }
 
   .modal-content {
@@ -210,10 +209,4 @@
     flex-direction: column;
   }
 
-  .pagination-container.bottom-right {
-    flex-direction: row;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 16px;
-  }
 }

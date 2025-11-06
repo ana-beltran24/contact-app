@@ -32,7 +32,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({
 
   return (
     <div className="favorites-list-container">
-      <div className="favorites-list">
+      <div className="favorites-list"> 
         {paginatedFavorites.map((f) => (
           <ContactCard
             key={f.id}
