@@ -1,0 +1,9 @@
+POST https://contact-app-api-nine.vercel.app/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Mari",
+  "lastName": "Duran",
+  "email": "mari@gmail.com",
+  "favorite": true
+}
