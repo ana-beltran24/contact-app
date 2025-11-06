@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../../atoms/Button/button";
 import Logo from "@/assets/Images/Logo.png";
 import "./navbar.css";
+import { NavLink } from "react-router-dom";
 
 interface NavbarProps {
   onNewClick: () => void;
@@ -22,8 +23,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNewClick }) => {
         <span></span>
       </div>
       <ul className={isOpen ? "active" : ""}>
-        <li><a href="/">Overview</a></li>
-        <li><a href="/contacts">Contacts</a></li>
+        <li><NavLink to="/" > Overview</NavLink> </li>
+         {/* <li><a h="/">Overview</a></li> */}
+        <li><NavLink to="/contacts">Contacts</NavLink></li>
         <li><a href="/favorites">Favorites</a></li>
         <Button label="+ NEW" variant="new" onClick={onNewClick} />
       </ul>
