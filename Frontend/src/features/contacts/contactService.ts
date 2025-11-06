@@ -1,7 +1,7 @@
 import { api } from "../../utils/api";
 import type { Contact } from "./contactTypes";
 
-const API_URL = "http://localhost:4000/api/contacts";
+const API_URL = `${import.meta.env.BASE_URL}/api/contacts`;
 
 export const getContacts = async (): Promise<Contact[]> => {
   const res = await api.get("/api/contacts");
@@ -30,7 +30,7 @@ export const deleteContact = async (id: string): Promise<void> => {
 };
 
 export const toggleFavorite = async (id: string, favorite: boolean) => {
-  const response = await fetch(`http://localhost:4000/api/contacts/${id}/favorite`, {
+  const response = await fetch(`${API_URL}/${id}/favorite`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ favorite: favorite }),
