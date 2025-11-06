@@ -24,9 +24,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNewClick }) => {
       </div>
       <ul className={isOpen ? "active" : ""}>
         <li><NavLink to="/" > Overview</NavLink> </li>
-         {/* <li><a h="/">Overview</a></li> */}
         <li><NavLink to="/contacts">Contacts</NavLink></li>
-        <li><a href="/favorites">Favorites</a></li>
+        <li><NavLink to="/favorites">Favorites</NavLink></li>
         <Button label="+ NEW" variant="new" onClick={onNewClick} />
       </ul>
     </nav>
