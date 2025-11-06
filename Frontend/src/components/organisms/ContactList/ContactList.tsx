@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ContactCard from "@/components/molecules/ContactCard/ContactCard";
 import "./ContactList.css";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import {
-  fetchContacts,
   deleteContact,
   toggleFavoriteContact,
   editContact,
@@ -42,11 +41,11 @@ const ContactList: React.FC<ContactListProps> = ({ type, contacts }) => {
   }>({ open: false, contact: null });
   const [favoriteModal, setFavoriteModal] = useState(false);
 
-  useEffect(() => {
-    if (!contacts || contacts.length === 0) {
-      dispatch(fetchContacts());
-    }
-  }, [contacts, dispatch]);
+ // useEffect(() => {
+ //   if (!contacts || contacts.length === 0) {
+ //     dispatch(fetchContacts());
+ //   }
+  // }, [contacts, dispatch]);
 
   if (loading) return <p className="loading">Cargando contactos...</p>;
   if (!contactsToShow.length) return <p className="empty">No hay contactos</p>;

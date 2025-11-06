@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Title from "@/components/molecules/Title/title";
 import FavoritesList from "@/components/organisms/FavoritesList/FavoritesList";
 import ContactList from "@/components/organisms/ContactList/ContactList";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
-import { toggleFavoriteContact } from "@/features/contacts/contactThunks";
+import { fetchContacts, toggleFavoriteContact } from "@/features/contacts/contactThunks";
 import type { Contact } from "@/features/contacts/contactTypes";
 
 const OverviewPage: React.FC = () => {
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+      }
+    , []);
+
   const { contacts } = useAppSelector((state) => state.contacts);
 
   const favoriteContacts: Contact[] = contacts
