@@ -117,7 +117,7 @@ const ContactList: React.FC<ContactListProps> = ({ type, contacts }) => {
           email={c.email}
           image={
             c.photo
-              ? `http://localhost:4000/api/contacts/${c.id}/photo`
+              ? `https://contact-app-api-nine.vercel.app/api/contacts/${c.id}/photo`
               : undefined
           }
           type={type}

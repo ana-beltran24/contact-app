@@ -40,7 +40,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({
             email={f.email}
             image={
               f.photo
-                ? `http://localhost:4000/api/contacts/${f.id}/photo`
+                ? `https://contact-app-api-nine.vercel.app/api/contacts/${f.id}/photo`
                 : undefined
             }
             type={type}
