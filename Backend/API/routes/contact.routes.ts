@@ -16,7 +16,7 @@ router.post("/", createContact);
 router.put("/:id", upload.single("photo"), updateContact);
 router.delete("/:id", deleteContact);
 router.get("/:id/photo", getContactPhoto);
-router.post("/:id/favorite", toggleFavorite);
+router.post("/favorite", toggleFavorite);
 
 export default router;
 
