@@ -96,7 +96,7 @@ export const deleteContact = async (req: Request, res: Response) => {
 
 export const toggleFavorite = async (req: Request, res: Response) => {
   try {
-    const id = parseInt(req.query.id as string, 0);
+    const { id } = req.params;
     const { favorite } = req.body;      
     const contact = await prisma.contact.update({
       where: { id: Number(id) },
