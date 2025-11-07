@@ -37,6 +37,8 @@ services:
       - "5173:80"
     depends_on:
       - backend
+    environment:
+      - VITE_API_URL=https://contact-app-api-nine.vercel.app
     
 
 volumes:
