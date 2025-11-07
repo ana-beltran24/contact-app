@@ -31,7 +31,7 @@ export const deleteContact = async (id: string): Promise<void> => {
 
 export const toggleFavorite = async (id: string, favorite: boolean) => {
   const response = await fetch(`${API_URL}/${id}/favorite`, {
-    method: "PATCH",
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ favorite: favorite }),
   });
