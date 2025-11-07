@@ -99,7 +99,7 @@ export const toggleFavorite = async (req: Request, res: Response) => {
     const id = parseInt(req.query.id as string, 0);
     const { favorite } = req.body;      
     const contact = await prisma.contact.update({
-      where: { id },
+      where: { id: Number(id) },
       data: { favorite },               
     });
 
