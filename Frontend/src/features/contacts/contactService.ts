@@ -4,7 +4,6 @@ import type { Contact } from "./contactTypes";
 const API_URL = `/api/contacts`;
 
 export const getContacts = async (): Promise<Contact[]> => {
-  console.log("oli aki estoi")
   const res = await api.get("/api/contacts");
   return res.data;
 };
