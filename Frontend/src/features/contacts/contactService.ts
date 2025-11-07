@@ -1,7 +1,7 @@
 import { api } from "../../utils/api";
 import type { Contact } from "./contactTypes";
 
-const API_URL = `${import.meta.env.BASE_URL}/api/contacts`;
+const API_URL = `/api/contacts`;
 
 export const getContacts = async (): Promise<Contact[]> => {
   const res = await api.get("/api/contacts");
